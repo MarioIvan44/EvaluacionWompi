@@ -73,6 +73,7 @@ registerCustomersController.register = async (req, res) => {
         .status(200)
         .json({ message: "Customer registered, verify your email" });
     });
+    
   } catch (error) {
     console.error("error: " + error);
     return res.status(500).json({ message: "INTERNAL SERVER ERROR" });
