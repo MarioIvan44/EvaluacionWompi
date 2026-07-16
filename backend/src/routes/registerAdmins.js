@@ -5,6 +5,6 @@ import registerAdminsController from "../controllers/registersAdmins.js"
 const router = express.Router();
 
 router.route("/").post(registerAdminsController.register);
-router.route("/").post(registerAdminsController.verifyCode)
+router.route("/verifyCode").post(registerAdminsController.verifyCode)
 
 export default router;

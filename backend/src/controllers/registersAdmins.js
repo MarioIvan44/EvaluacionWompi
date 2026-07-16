@@ -21,7 +21,7 @@ registerAdminsController.register = async (req, res) => {
   const { name, email, password, isVerified, loginAttempts, timeOut } =
     req.body;
   try {
-    const existAdmin = await adminModel.findOne(email);
+    const existAdmin = await adminModel.findOne({email});
     if (existAdmin) {
       return res.status(400).json({ message: "admin already exist" });
     }

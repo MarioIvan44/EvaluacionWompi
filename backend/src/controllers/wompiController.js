@@ -5,7 +5,7 @@ const wompiController = {}
 
 wompiController.generateToken = async (req, res) => {
     try {
-        const response = await fetch("https://api.wompi.sv/token", {
+        const response = await fetch("https://id.wompi.sv/connect/token", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -20,7 +20,7 @@ wompiController.generateToken = async (req, res) => {
 
         if(!response.ok){
             const error = await response.text();
-            return res.status(500).json({error})
+            return res.status(500).json({message: "error" + error})
         }
 
         const data = await response.json();
@@ -36,7 +36,7 @@ wompiController.paymentTest = async (req, res) => {
     try {
         const {token, formData} = req.body;
 
-        const response = await fetch("https://api.wompi.sv/TransaccionCompra/TokenizadoSin3Ds", {
+        const response = await fetch("https://api.wompi.sv/TransaccionCompra/TokenizadaSin3Ds", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -51,7 +51,7 @@ wompiController.paymentTest = async (req, res) => {
         }
 
         const data = await response.json()
-        return res.status(200).json(data)
+        return res.status(200).json({data: data})
     } catch (error) {
         console.error ("error: " + error)
         return res.status(500).json({message: "Internal server error"})

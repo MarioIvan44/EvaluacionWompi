@@ -8,7 +8,7 @@ const loginCustomerController = {}
 loginCustomerController.login = async (req, res) => {
     try {
         const {email, password} = req.body;
-        const userfound = await customerModel.findOne(email);
+        const userfound = await customerModel.findOne({email});
 
         if(!userfound){
             return res.status(400).json({message: "Customer not found"})

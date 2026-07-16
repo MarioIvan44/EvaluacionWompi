@@ -20,12 +20,12 @@ app.use(cookieParser())
 app.use(express.json())
 
 //CREATE ENDPOINTS
-app.use("/loginAdmin", loginAdminRoutes)
-app.use("/loginCustomer", loginCustomerRoutes)
-app.use("/logout", logoutRoutes)
-app.use("/registerAdmin", registerAdmin)
-app.use("/registerCustomer", registerCustomers)
-app.use("/tickets", ticketsRoutes)
-app.use("/wompi", wompiRoutes)
+app.use("/api/loginAdmin", loginAdminRoutes)
+app.use("/api/loginCustomer", loginCustomerRoutes)
+app.use("/api/logout", logoutRoutes)
+app.use("/api/registerAdmin", registerAdmin)
+app.use("/api/registerCustomer", registerCustomers)
+app.use("/api/tickets", ticketsRoutes)
+app.use("/api/wompi", wompiRoutes)
 
 export default app;

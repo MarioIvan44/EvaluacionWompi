@@ -8,7 +8,7 @@
 ● timeOut
  */
 
-import moongose, {schema, model} from "moongose"
+import moongose, {Schema, model} from "mongoose"
 
 const adminsSchema = new Schema ({
     name: {

@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken"
 import { config } from "../../config.js"
 
-export const validateAuthCookie = (AllowedTypes = []) => {
+export const validateAuthCookie = (AllowedTypes = ["admin", "customer"]) => {
     return (req, res, next) => {
         try{
             const {authCookie} = req.cookies;

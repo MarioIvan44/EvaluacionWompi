@@ -9,11 +9,11 @@
 
  */
 
-import moongose, {schema, model} from "moongose"
+import moongose, {Schema, model} from "mongoose"
 
 const ticketsSchema = new Schema ({
     customerId: {
-        type: moongose.schema.Types.ObjectId, 
+        type: moongose.Schema.Types.ObjectId, 
         ref: "customers"
     },
     quantity: {

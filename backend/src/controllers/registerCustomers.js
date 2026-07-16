@@ -21,7 +21,7 @@ registerCustomersController.register = async (req, res) => {
   const { name, email, password, isVerified, loginAttempts, timeOut } =
     req.body;
   try {
-    const existCustomer = await customerModel.findOne(email);
+    const existCustomer = await customerModel.findOne({email});
     if (existCustomer) {
       return res.status(400).json({ message: "customer already exist" });
     }
@@ -73,7 +73,7 @@ registerCustomersController.register = async (req, res) => {
         .status(200)
         .json({ message: "Customer registered, verify your email" });
     });
-    
+
   } catch (error) {
     console.error("error: " + error);
     return res.status(500).json({ message: "INTERNAL SERVER ERROR" });

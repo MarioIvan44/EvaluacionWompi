@@ -5,6 +5,6 @@ import registerCustomersController from "../controllers/registerCustomers.js"
 const router = express.Router();
 
 router.route("/").post(registerCustomersController.register);
-router.route("/").post(registerCustomersController.verifyCode)
+router.route("/verifyCode").post(registerCustomersController.verifyCode)
 
 export default router;
