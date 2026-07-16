@@ -57,7 +57,7 @@ ticketsController.put = async(req, res) => {
 //DELETE
 ticketsController.delete = async(req, res) => {
     try {
-        const deleted = await findByIdAndDelete(req.params.id)
+        const deleted = await ticketsModel.findByIdAndDelete(req.params.id)
 
         if(!deleted){
             return res.status(404).json({message: "Not found"})
