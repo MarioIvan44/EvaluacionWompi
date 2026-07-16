@@ -10,5 +10,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "expree": "^2.1.0",
+    "express": "^4.22.2",
+    "moongose": "^1.0.0",
+    "nodemailer": "^9.0.3"
+  }
 }

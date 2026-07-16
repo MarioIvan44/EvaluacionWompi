@@ -13,3 +13,5 @@ router.route("/")
 router.route("/:id")
 .put(validateAuthCookie(["admin", "customer"], ticketsController.put))
 .delete(validateAuthCookie(["admin"], ticketsController.delete))
+
+export default router;
