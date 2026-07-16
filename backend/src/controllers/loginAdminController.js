@@ -1,17 +1,17 @@
 import jsonwebtoken from "jsonwebtoken"
 import bcrypt from "bcryptjs"
-import customerModel from "../models/customers.js"
+import adminModel from "../models/admins.js"
 import { config } from "../../config.js"
 
-const loginCustomerController = {}
+const loginAdminController = {}
 
-loginCustomerController.login = async (req, res) => {
+loginAdminController.login = async (req, res) => {
     try {
         const {email, password} = req.body;
-        const userfound = await customerModel.findOne(email);
+        const userfound = await adminModel.findOne(email);
 
         if(!userfound){
-            return res.status(400).json({message: "Customer not found"})
+            return res.status(400).json({message: "Admin not found"})
         }
 
         if(userfound.timeOut && userfound.timeOut > Date.now()){
@@ -38,7 +38,7 @@ loginCustomerController.login = async (req, res) => {
         await userfound.save()
 
         const token = jsonwebtoken.sign(
-            {id: userfound._id, userType: "customer"},
+            {id: userfound._id, userType: "admin"},
             config.JWT.secret,
             {expiresIn: "7d"}
         )
@@ -52,4 +52,4 @@ loginCustomerController.login = async (req, res) => {
     }
 }
 
-export default loginCustomerController;
+export default loginAdminController;
