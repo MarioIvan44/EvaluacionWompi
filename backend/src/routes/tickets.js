@@ -6,12 +6,12 @@ import { validateAuthCookie } from "../middlewares/authMiddleware.js"
 const router = express.Router();
 
 router.route("/")
-.get(validateAuthCookie(["admin"], ticketsController.get))
-.post(validateAuthCookie(["customer"], ticketsController.post))
+.get(validateAuthCookie(["admin"]), ticketsController.get)
+.post(validateAuthCookie(["customer"]), ticketsController.create)
 
 
 router.route("/:id")
-.put(validateAuthCookie(["admin", "customer"], ticketsController.put))
-.delete(validateAuthCookie(["admin"], ticketsController.delete))
+.put(validateAuthCookie(["admin", "customer"]), ticketsController.put)
+.delete(validateAuthCookie(["admin"]), ticketsController.delete)
 
 export default router;
